@@ -17,13 +17,14 @@ export default function App() {
 
   const generateReview = async () => {
     try {
-      const res = await axios.post('/api/generate-review', {
-        text,
-        style,
-      })
-      setReview(res.data.review)
+      const res = await axios.post('/api/generate-review-handler', {
+        article: text,  // 将text重命名为article以匹配后端参数
+        stylePrompt: style  // 将style重命名为stylePrompt以匹配后端参数
+      });
+      setReview(res.data.result);  // 将res.data.review改为res.data.result以匹配后端响应
     } catch (err) {
-      alert('生成失败，请检查后端接口')
+      console.error('生成点评失败:', err);  // 添加详细错误日志
+      alert('生成失败: ' + (err as Error).message);  // 显示具体错误信息
     }
   }
 
