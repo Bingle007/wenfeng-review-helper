@@ -27,7 +27,7 @@
   <script>
     async function extractStyle() {
       const input = document.getElementById("inputText").value;
-      const res = await fetch("/api/extract", {
+      const res = await fetch("/api/extract-style", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: input }),
@@ -39,7 +39,7 @@
     async function generateReview() {
       const input = document.getElementById("inputText").value;
       const style = document.getElementById("styleResult").textContent;
-      const res = await fetch("/api/review", {
+      const res = await fetch("/api/generate-review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: input, style }),

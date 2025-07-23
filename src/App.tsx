@@ -8,7 +8,7 @@ export default function App() {
 
   const extractStyle = async () => {
     try {
-      const res = await axios.post('/api/extract', { text })
+      const res = await axios.post('/api/extract-style', { text })
       setStyle(res.data.style)
     } catch (err) {
       alert('提取失败，请检查后端接口')
@@ -17,7 +17,7 @@ export default function App() {
 
   const generateReview = async () => {
     try {
-      const res = await axios.post('/api/review', {
+      const res = await axios.post('/api/generate-review', {
         text,
         style,
       })

@@ -33,7 +33,7 @@ export default function App() {
   const generate = async () => {
     if (!currentStyle) return alert("请先选择或添加一个点评风格！");
     setLoading(true);
-    const res = await fetch("/api/review", {
+    const res = await fetch("/api/generate-review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
